@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   purge: ['./src/**/*.html', './src/**/*.ts'],
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     screens: {
       sm: '640px',
@@ -163,6 +163,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Karla',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
