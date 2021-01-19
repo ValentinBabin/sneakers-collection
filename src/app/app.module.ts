@@ -10,6 +10,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { BrandPageComponent } from './pages/brand-page/brand-page.component';
 import { BrandComponentComponent } from './components/brand-component/brand-component.component';
 import { SneakerComponentComponent } from './components/sneaker-component/sneaker-component.component';
+import { PricePipe } from './pipes/price.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SneakerComponentComponent } from './components/sneaker-component/sneake
     SearchPageComponent,
     BrandPageComponent,
     BrandComponentComponent,
-    SneakerComponentComponent
+    SneakerComponentComponent,
+    PricePipe
   ],
   imports: [
     BrowserModule,
