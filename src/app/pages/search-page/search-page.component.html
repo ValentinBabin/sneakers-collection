@@ -1,11 +1,13 @@
-<section>
-    <app-search-form></app-search-form>
-</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <section class="">
+        <app-search-form></app-search-form>
+    </section>
 
-<section>
-    <ul>
-        <li *ngFor="let brand of brands">
-            <app-brand-component [brand]="brand"></app-brand-component>
-        </li>
-    </ul>
-</section>
+    <section class="">
+        <ul>
+            <li *ngFor="let brand of brands">
+                <app-brand-component [brand]="brand"></app-brand-component>
+            </li>
+        </ul>
+    </section>
+</div>

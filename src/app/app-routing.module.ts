@@ -6,12 +6,12 @@ import { ResultsSearchPageComponent } from './pages/results-search-page/results-
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 const routes: Routes = [
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent, },
   { path: 'search', component: SearchPageComponent },
   { path: 'brands/:id', component: BrandPageComponent },
-  { path: 'results-search/:name', component: ResultsSearchPageComponent },
-  
+  { path: 'results-search/:name/:shoe/:brand/:releaseYar', component: ResultsSearchPageComponent },
+
 ];
 
 @NgModule({
