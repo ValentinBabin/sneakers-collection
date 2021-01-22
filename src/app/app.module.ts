@@ -11,6 +11,9 @@ import { BrandPageComponent } from './pages/brand-page/brand-page.component';
 import { BrandComponentComponent } from './components/brand-component/brand-component.component';
 import { SneakerComponentComponent } from './components/sneaker-component/sneaker-component.component';
 import { PricePipe } from './pipes/price.pipe';
+import { ResultsSearchPageComponent } from './pages/results-search-page/results-search-page.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { PricePipe } from './pipes/price.pipe';
     BrandPageComponent,
     BrandComponentComponent,
     SneakerComponentComponent,
-    PricePipe
+    PricePipe,
+    ResultsSearchPageComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

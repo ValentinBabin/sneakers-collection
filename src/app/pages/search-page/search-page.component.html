@@ -1,5 +1,11 @@
-<ul>
-    <li *ngFor="let brand of brands">
-        <app-brand-component [brand]="brand"></app-brand-component>
-    </li>
-</ul>
+<section>
+    <app-search-form></app-search-form>
+</section>
+
+<section>
+    <ul>
+        <li *ngFor="let brand of brands">
+            <app-brand-component [brand]="brand"></app-brand-component>
+        </li>
+    </ul>
+</section>

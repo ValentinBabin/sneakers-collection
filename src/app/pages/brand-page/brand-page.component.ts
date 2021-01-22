@@ -17,10 +17,10 @@ export class BrandPageComponent implements OnInit {
 
   ngOnInit(): void {
     const brandName = this.route.snapshot.paramMap.get('id');
-    console.log(this.route.snapshot);
+    // console.log(this.route.snapshot);
     
     this.httpClient.get(`https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=${brandName}&releaseYear=2020`).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.sneakers = data['results'];
     })
   }
