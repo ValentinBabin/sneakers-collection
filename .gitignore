@@ -46,4 +46,5 @@ testem.log
 Thumbs.db
 
 # Don't push web api folder (database login etc.)
-web_api/
+/web_api/*
+!/web_api/.keep
