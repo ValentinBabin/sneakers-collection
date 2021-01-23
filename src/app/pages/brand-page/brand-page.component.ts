@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-brand-page',
   templateUrl: './brand-page.component.html',
@@ -13,14 +12,13 @@ export class BrandPageComponent implements OnInit {
 
   constructor(
     private readonly httpClient: HttpClient,
-    private route: ActivatedRoute) { }
+    private readonly route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
-    const brandName = this.route.snapshot.paramMap.get('id');
-    // console.log(this.route.snapshot);
-    
-    this.httpClient.get(`https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=${brandName}&releaseYear=2020`).subscribe(data => {
-      // console.log(data);
+    const brandName = this.route.snapshot.paramMap.get('brandName');
+
+    this.httpClient.get(`https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=${brandName}`).subscribe(data => {
       this.sneakers = data['results'];
     })
   }

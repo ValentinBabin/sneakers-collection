@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { RouterService } from 'src/app/services/router.service';
 
 @Component({
   selector: 'app-brand-component',
@@ -10,16 +10,14 @@ export class BrandComponentComponent implements OnInit {
 
   @Input() brand;
 
-  constructor(private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(private readonly routerService: RouterService) { }
 
   ngOnInit(): void {
 
   }
 
-  moveTo(): void{
-    this.router.navigateByUrl(`/brands/${this.brand}`)
-    
+  moveTo(): void {
+    this.routerService.navigateTo(`/brands/${this.brand}`);
   }
 
 }

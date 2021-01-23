@@ -16,8 +16,6 @@ export class SearchPageComponent implements OnInit {
   ngOnInit(): void {
     this.httpClient.get('https://api.thesneakerdatabase.com/v1/brands').subscribe(data => {
       this.brands = data['results'];
-      console.log(this.brands);
-      
     })
   }
 

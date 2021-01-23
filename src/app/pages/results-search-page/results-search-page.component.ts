@@ -15,8 +15,9 @@ export class ResultsSearchPageComponent implements OnInit {
   results = [];
 
   constructor(
-    private readonly route: ActivatedRoute,
-    private readonly httpClient: HttpClient) { }
+    private readonly httpClient: HttpClient,
+    private readonly route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.name = (this.route.snapshot.paramMap.get('name')) ? this.createQueryParam('name') : '';
@@ -25,7 +26,6 @@ export class ResultsSearchPageComponent implements OnInit {
     this.year = (this.route.snapshot.paramMap.get('year')) ? this.createQueryParam('year') : '';
 
     this.httpClient.get(`https://api.thesneakerdatabase.com/v1/sneakers?limit=100${this.name}${this.shoe}${this.brand}${this.year}`).subscribe(data => {
-      // console.log(data);
       this.results = data['results'];
     })
   }

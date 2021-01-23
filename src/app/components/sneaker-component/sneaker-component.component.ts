@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Sneaker } from 'src/app/class/sneaker';
 
 @Component({
   selector: 'app-sneaker-component',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SneakerComponentComponent implements OnInit {
 
-  @Input() sneaker;
+  @Input() sneaker: Sneaker;
 
   constructor() { }
 
