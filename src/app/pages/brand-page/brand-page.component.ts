@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BrandPageComponent implements OnInit {
 
   sneakers = [];
+  public brandName: string;
 
   constructor(
     private readonly httpClient: HttpClient,
@@ -16,9 +17,9 @@ export class BrandPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const brandName = this.route.snapshot.paramMap.get('brandName');
+    this.brandName = this.route.snapshot.paramMap.get('brandName');
 
-    this.httpClient.get(`https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=${brandName}`).subscribe(data => {
+    this.httpClient.get(`https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=${this.brandName}`).subscribe(data => {
       this.sneakers = data['results'];
     })
   }
