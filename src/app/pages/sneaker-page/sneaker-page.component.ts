@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Sneaker } from 'src/app/class/sneaker';
+import { RouterService } from 'src/app/services/router.service';
 
 @Component({
   selector: 'app-sneaker-page',
@@ -15,6 +16,7 @@ export class SneakerPageComponent implements OnInit {
   constructor(
     private readonly httpClient: HttpClient,
     private readonly route: ActivatedRoute,
+    private readonly routerService: RouterService
   ) { }
 
   ngOnInit(): void {
@@ -26,4 +28,7 @@ export class SneakerPageComponent implements OnInit {
     })
   }
 
+  back() {
+    this.routerService.navigateToBackPage();
+  }
 }
