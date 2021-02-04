@@ -14,6 +14,7 @@ import { PricePipe } from './pipes/price.pipe';
 import { ResultsSearchPageComponent } from './pages/results-search-page/results-search-page.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { FormsModule } from '@angular/forms';
+import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     SneakerComponentComponent,
     PricePipe,
     ResultsSearchPageComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    SneakerPageComponent
   ],
   imports: [
     BrowserModule,

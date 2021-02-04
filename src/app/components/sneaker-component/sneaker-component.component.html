@@ -1,4 +1,6 @@
-<h2 class="font-sans font-bold font-3xl">{{sneaker.shoe}} - {{sneaker.name}}</h2>
-<h3 class="font-sans font-regular italic font-sm">{{sneaker.title}}</h3>
-<img class="w-40" [src]="sneaker.media.imageUrl" alt="">
-<p class="font-semibold font-italic">{{sneaker.retailPrice | price}}</p>
+<a (click)="moveToSneakerPage(sneaker.id, sneaker.title)">
+    <h2 class="font-sans font-bold font-3xl">{{sneaker.shoe}} - {{sneaker.name}}</h2>
+    <h3 class="font-sans font-regular italic font-sm">{{sneaker.title}}</h3>
+    <img class="w-40" [src]="sneaker.media.imageUrl" alt="">
+    <p class="font-semibold font-italic">{{sneaker.retailPrice | price}}</p>
+</a>

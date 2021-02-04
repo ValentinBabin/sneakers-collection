@@ -4,6 +4,7 @@ import { BrandPageComponent } from './pages/brand-page/brand-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ResultsSearchPageComponent } from './pages/results-search-page/results-search-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,7 +12,7 @@ const routes: Routes = [
   { path: 'search', component: SearchPageComponent },
   { path: 'brands/:brandName', component: BrandPageComponent },
   { path: 'results-search/:name/:shoe/:brand/:releaseYar', component: ResultsSearchPageComponent },
-
+  { path: 'sneaker/:id/:name', component: SneakerPageComponent },
 ];
 
 @NgModule({
