@@ -16,6 +16,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { FormsModule } from '@angular/forms';
 import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
+import { WishlistPageComponent } from './pages/wishlist-page/wishlist-page.component';
+import { CollectionPageComponent } from './pages/collection-page/collection-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
     ResultsSearchPageComponent,
     SearchFormComponent,
     SneakerPageComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    WishlistPageComponent,
+    CollectionPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,15 @@
-<a class="select-none cursor-pointer" (click)="moveToSneakerPage(sneaker.id, sneaker.title)">
-    <img class="mx-auto w-2/3 md:w-full" [src]="sneaker.media.imageUrl" alt="">
-    <p class="font-sans font-bold text-bodyMobile md:text-body text-center md:text-left">{{sneaker.title}}</p>
-</a>
+<div *ngIf="!isSkeleton">
+    <a class="select-none cursor-pointer" (click)="moveToSneakerPage(sneaker.id, sneaker.title)">
+        <img class="mx-auto w-2/3 md:w-full img-blended" [src]="sneaker.media.imageUrl" alt="">
+        <p class="font-sans font-bold text-bodyMobile md:text-body text-center md:text-left">{{sneaker.title}}</p>
+    </a>
+</div>
+
+<div *ngIf="isSkeleton">
+    <a class="block w-32 h-32 select-none cursor-pointer">
+        <img class="skeleton-box mx-auto w-auto h-32" src="" alt="">
+        <p
+            class="skeleton-box font-sans font-bold text-bodyMobile md:text-body text-center md:text-left w-3/5 h-5 mt-2">
+        </p>
+    </a>
+</div>
