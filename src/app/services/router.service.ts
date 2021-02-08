@@ -20,7 +20,7 @@ export class RouterService {
   }
 
   public navigateTo(url: string): void {
-    this.router.navigateByUrl(url);
+    this.router.navigateByUrl(encodeURI(url));
   }
 
   public navigateToBackPage(): void {
