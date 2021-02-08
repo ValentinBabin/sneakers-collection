@@ -17,8 +17,7 @@ export class SneakerPageComponent implements OnInit {
 
   constructor(
     private readonly httpClient: HttpClient,
-    private readonly route: ActivatedRoute,
-    private readonly routerService: RouterService
+    private readonly route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -33,10 +32,6 @@ export class SneakerPageComponent implements OnInit {
     // this.getData().then(value => {
     //   console.log(value)
     // })
-  }
-
-  back() {
-    this.routerService.navigateToBackPage();
   }
 
   // async getData() {
