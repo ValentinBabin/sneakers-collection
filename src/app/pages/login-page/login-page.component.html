@@ -1,0 +1,21 @@
+<div class="w-full md:w-2/5 xl:w-1/5 mx-auto mt-0 container">
+    <div class="content">
+        <h1 class="font-sans font-bold text-h1Mobile md:text-h1 tracking-tight mt-5">Connexion</h1>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="font-sans font-regular text-bodyMobile md:text-body" for="password">Mot de passe</label>
+                <input type="password"
+                    class="tracking-widest form-control px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
+                    id="password" [(ngModel)]="model.password" name="password" #name="ngModel">
+            </div>
+
+            <button type="submit"
+                class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Se
+                connecter</button>
+        </form>
+
+        <p class="mt-5 cursor-pointer font-sans font-regular text-bodyMobile md:text-body hover:underline"
+            (click)="goInVisitMode()">
+            Mode visiteur</p>
+    </div>
+</div>
