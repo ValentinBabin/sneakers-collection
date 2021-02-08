@@ -2,16 +2,17 @@
     <div class="font-sans font-regular text-bodyMobile md:text-body select-none cursor-pointer" (click)="back()">Retour
     </div>
 </div>
-<div class="w-full md:w-2/5 mx-auto">
+<div ng-If="sneaker" class="w-full md:w-2/5 mx-auto">
     <h1 class="font-sans font-bold text-h1Mobile md:text-h1 tracking-tight mt-10">{{sneaker.title}}</h1>
     <p class="font-sans font-regular text-bodyMobile md:text-body"><i class="font-semibold">Silhouette :</i>
         {{sneaker.shoe}}</p>
     <p class="font-sans font-regular text-bodyMobile md:text-body"><i class="font-semibold">Nom: </i> {{sneaker.name}}
     </p>
     <img class="w-100" [src]="sneaker.media.imageUrl" alt="">
-    <h2 class="font-sans font-regular text-bodyMobile md:text-body"><i class="font-semibold">Prix retail :</i>
-        {{sneaker.retailPrice |
-        price}}</h2>
-    <h2 class="font-sans font-regular text-bodyMobile md:text-body"><i class="font-semibold">Prix resell :</i> {{0 |
-        price}}</h2>
+    <h2 class="font-sans font-regular text-bodyMobile md:text-body">
+        <i class="font-semibold">Prix retail :</i> {{sneaker.retailPrice | price}}
+    </h2>
+    <h2 ng-If="sneaker.resellPrice" class="font-sans font-regular text-bodyMobile md:text-body">
+        <i class="font-semibold">Prix resell :</i> {{sneaker.resellPrice | price}}
+    </h2>
 </div>
