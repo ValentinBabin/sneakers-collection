@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { IsLogInGuard } from './guards/is-log-in.guard';
 import { BrandPageComponent } from './pages/brand-page/brand-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ResultsSearchPageComponent } from './pages/results-search-page/results-search-page.component';
@@ -8,11 +9,11 @@ import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.componen
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent, },
-  { path: 'search', component: SearchPageComponent },
-  { path: 'brands/:brandName', component: BrandPageComponent },
-  { path: 'results-search/:name/:shoe/:brand/:releaseYar', component: ResultsSearchPageComponent },
-  { path: 'sneaker/:id/:name', component: SneakerPageComponent },
+  { path: 'home', component: HomePageComponent, canActivate: [IsLogInGuard] },
+  { path: 'search', component: SearchPageComponent, canActivate: [IsLogInGuard] },
+  { path: 'brands/:brandName', component: BrandPageComponent, canActivate: [IsLogInGuard] },
+  { path: 'results-search/:name/:shoe/:brand/:releaseYar', component: ResultsSearchPageComponent, canActivate: [IsLogInGuard] },
+  { path: 'sneaker/:id/:name', component: SneakerPageComponent, canActivate: [IsLogInGuard] },
 ];
 
 @NgModule({
