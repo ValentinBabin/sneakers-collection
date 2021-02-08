@@ -20,6 +20,8 @@ export class RouterService {
   }
 
   public navigateTo(url: string): void {
+    console.log(encodeURI(url));
+
     this.router.navigateByUrl(encodeURI(url));
   }
 
@@ -28,7 +30,7 @@ export class RouterService {
     if (this.history.length > 0) {
       this.location.back();
     } else {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/home');
     }
   }
 }

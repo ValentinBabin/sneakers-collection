@@ -18,6 +18,7 @@ import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.componen
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { WishlistPageComponent } from './pages/wishlist-page/wishlist-page.component';
 import { CollectionPageComponent } from './pages/collection-page/collection-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CollectionPageComponent } from './pages/collection-page/collection-page
     SneakerPageComponent,
     BackButtonComponent,
     WishlistPageComponent,
-    CollectionPageComponent
+    CollectionPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  isInVisitMode: boolean = false;
+
+  constructor(private readonly sessionService: SessionService) { }
 
   ngOnInit(): void {
+    this.isInVisitMode = this.sessionService.getIsInVisitModeBool();
   }
 
 }

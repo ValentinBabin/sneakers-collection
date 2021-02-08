@@ -2,7 +2,7 @@
     <h1 class="font-sans font-bold text-h1Mobile md:text-h1 tracking-tight mt-5">Recherche ta paire</h1>
     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
         <div class="form-group mt-2">
-            <label class="font-sans font-regular text-bodyMobile md:text-body" for="name">Silhouette</label>
+            <label class="font-sans font-regular text-bodyMobile md:text-body" for="shoe">Silhouette</label>
             <input type="text"
                 class="form-control px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
                 id="shoe" [(ngModel)]="model.shoe" name="shoe" #name="ngModel">
@@ -17,15 +17,15 @@
 
         <div class="grid grid-cols-12 gap-5 mt-2">
             <div class="form-group col-span-6 lg:col-span-8">
-                <label class="font-sans font-regular text-bodyMobile md:text-body" for="name">Marque</label>
+                <label class="font-sans font-regular text-bodyMobile md:text-body" for="brand">Marque</label>
                 <input type="text"
                     class="form-control px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
                     id="brand" [(ngModel)]="model.brand" name="brand" #name="ngModel">
             </div>
 
             <div class="form-group col-span-6 lg:col-span-4">
-                <label class="font-sans font-regular text-bodyMobile md:text-body" for="name">Année de sortie</label>
-                <input type="number"
+                <label class="font-sans font-regular text-bodyMobile md:text-body" for="year">Année de sortie</label>
+                <input type="text"
                     class="form-control px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
                     id="year" [(ngModel)]="model.year" name="year" #name="ngModel">
             </div>
