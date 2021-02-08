@@ -15,6 +15,7 @@ import { ResultsSearchPageComponent } from './pages/results-search-page/results-
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { FormsModule } from '@angular/forms';
 import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.component';
+import { BackButtonComponent } from './components/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.componen
     PricePipe,
     ResultsSearchPageComponent,
     SearchFormComponent,
-    SneakerPageComponent
+    SneakerPageComponent,
+    BackButtonComponent
   ],
   imports: [
     BrowserModule,
