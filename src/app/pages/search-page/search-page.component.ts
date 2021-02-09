@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { config } from 'rxjs';
+import { APISneakerDatabaseService } from 'src/app/services/apisneaker-database.service';
 
 @Component({
   selector: 'app-search-page',
@@ -11,12 +12,12 @@ export class SearchPageComponent implements OnInit {
 
   brands = [];
 
-  constructor(private readonly httpClient: HttpClient) { }
+  constructor(
+    private readonly APISneakerDatabase: APISneakerDatabaseService,
+  ) { }
 
-  ngOnInit(): void {
-    this.httpClient.get('https://api.thesneakerdatabase.com/v1/brands').subscribe(data => {
-      this.brands = data['results'];
-    })
+  async ngOnInit(): Promise<void> {
+    this.brands = await this.APISneakerDatabase.getBrands();
   }
 
 }

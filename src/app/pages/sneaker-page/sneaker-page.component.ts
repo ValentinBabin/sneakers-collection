@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Sneaker } from 'src/app/class/sneaker';
+import { APISneakerDatabaseService } from 'src/app/services/apisneaker-database.service';
 import { RouterService } from 'src/app/services/router.service';
 // import puppeteer from 'puppeteer';
 
@@ -16,17 +17,13 @@ export class SneakerPageComponent implements OnInit {
   resellPrice: string;
 
   constructor(
-    private readonly httpClient: HttpClient,
+    private readonly APISneakerDatabase: APISneakerDatabaseService,
     private readonly route: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get('id');
-
-    this.httpClient.get(`https://api.thesneakerdatabase.com/v1/sneakers/${id}`).subscribe(data => {
-      this.sneaker = data['results'][0];
-      console.log(this.sneaker);
-    })
+    this.sneaker = await this.APISneakerDatabase.getSneaker(id);
 
     // Appelle la fonction getData() et affichage les données retournées
     // this.getData().then(value => {

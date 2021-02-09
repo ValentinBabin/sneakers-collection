@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { APISneakerDatabaseService } from 'src/app/services/apisneaker-database.service';
 @Component({
   selector: 'app-brand-page',
   templateUrl: './brand-page.component.html',
@@ -12,16 +13,13 @@ export class BrandPageComponent implements OnInit {
   public brandName: string;
 
   constructor(
-    private readonly httpClient: HttpClient,
+    private readonly APISneakerDatabase: APISneakerDatabaseService,
     private readonly route: ActivatedRoute,
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.brandName = this.route.snapshot.paramMap.get('brandName');
-
-    this.httpClient.get(`https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=${this.brandName}`).subscribe(data => {
-      this.sneakers = data['results'];
-    })
+    this.sneakers = await this.APISneakerDatabase.getSneakersBrand(this.brandName);
   }
 
 }
