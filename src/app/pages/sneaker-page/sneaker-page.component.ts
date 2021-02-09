@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Sneaker } from 'src/app/class/sneaker';
 import { APISneakerDatabaseService } from 'src/app/services/apisneaker-database.service';
 import { RouterService } from 'src/app/services/router.service';
+import { ScrappingService } from 'src/app/services/scrapping.service';
 // import puppeteer from 'puppeteer';
 
 @Component({
@@ -17,13 +18,16 @@ export class SneakerPageComponent implements OnInit {
   resellPrice: string;
 
   constructor(
-    private readonly APISneakerDatabase: APISneakerDatabaseService,
+    private readonly APISneakerDatabaseService: APISneakerDatabaseService,
+    private readonly scrappingService: ScrappingService,
     private readonly route: ActivatedRoute
   ) { }
 
   async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get('id');
-    this.sneaker = await this.APISneakerDatabase.getSneaker(id);
+    this.sneaker = await this.APISneakerDatabaseService.getSneaker(id);
+
+    this.scrappingService.init();
 
     // Appelle la fonction getData() et affichage les données retournées
     // this.getData().then(value => {

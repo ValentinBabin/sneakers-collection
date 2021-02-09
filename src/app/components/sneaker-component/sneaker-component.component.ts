@@ -18,7 +18,7 @@ export class SneakerComponentComponent implements OnInit {
   }
 
   public moveToSneakerPage(id, title): void {
-    const regex = /[()]/g;
+    const regex = /[()/]/g;
     title = title.replace(regex, '');
     this.routerService.navigateTo(`/sneaker/${id}/${title}`);
   }

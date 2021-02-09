@@ -17,7 +17,7 @@ export class ResultsSearchPageComponent implements OnInit {
   results = [];
 
   constructor(
-    private readonly APISneakerDatabase: APISneakerDatabaseService,
+    private readonly APISneakerDatabaseService: APISneakerDatabaseService,
     private readonly route: ActivatedRoute
   ) { }
 
@@ -27,7 +27,7 @@ export class ResultsSearchPageComponent implements OnInit {
     this.brand = (this.route.snapshot.paramMap.get('brand')) ? this.createQueryParam('brand') : '';
     this.year = (this.route.snapshot.paramMap.get('year')) ? this.createQueryParam('year') : '';
 
-    this.results = await this.APISneakerDatabase.getSneakers(this.name, this.shoe, this.brand, this.year);
+    this.results = await this.APISneakerDatabaseService.getSneakers(this.name, this.shoe, this.brand, this.year);
   }
 
   createQueryParam(param: string): string {

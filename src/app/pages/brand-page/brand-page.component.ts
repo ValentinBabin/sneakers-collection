@@ -13,13 +13,13 @@ export class BrandPageComponent implements OnInit {
   public brandName: string;
 
   constructor(
-    private readonly APISneakerDatabase: APISneakerDatabaseService,
+    private readonly APISneakerDatabaseService: APISneakerDatabaseService,
     private readonly route: ActivatedRoute,
   ) { }
 
   async ngOnInit(): Promise<void> {
     this.brandName = this.route.snapshot.paramMap.get('brandName');
-    this.sneakers = await this.APISneakerDatabase.getSneakersBrand(this.brandName);
+    this.sneakers = await this.APISneakerDatabaseService.getSneakersBrand(this.brandName);
   }
 
 }

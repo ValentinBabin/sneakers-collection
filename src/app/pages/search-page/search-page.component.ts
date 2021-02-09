@@ -13,11 +13,11 @@ export class SearchPageComponent implements OnInit {
   brands = [];
 
   constructor(
-    private readonly APISneakerDatabase: APISneakerDatabaseService,
+    private readonly APISneakerDatabaseService: APISneakerDatabaseService,
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.brands = await this.APISneakerDatabase.getBrands();
+    this.brands = await this.APISneakerDatabaseService.getBrands();
   }
 
 }
