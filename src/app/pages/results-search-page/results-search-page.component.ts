@@ -25,7 +25,7 @@ export class ResultsSearchPageComponent implements OnInit {
     this.name = (this.route.snapshot.paramMap.get('name')) ? this.createQueryParam('name') : '';
     this.shoe = (this.route.snapshot.paramMap.get('shoe')) ? this.createQueryParam('shoe') : '';
     this.brand = (this.route.snapshot.paramMap.get('brand')) ? this.createQueryParam('brand') : '';
-    this.year = (this.route.snapshot.paramMap.get('year')) ? this.createQueryParam('year') : '';
+    this.year = (this.route.snapshot.paramMap.get('releaseYear')) ? this.createQueryParam('releaseYear') : '';
 
     this.results = await this.APISneakerDatabaseService.getSneakers(this.name, this.shoe, this.brand, this.year);
   }

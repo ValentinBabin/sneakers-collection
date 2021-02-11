@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent, canActivate: [IsLogInGuard] },
   { path: 'search', component: SearchPageComponent, canActivate: [IsLogInGuard] },
   { path: 'brands/:brandName', component: BrandPageComponent, canActivate: [IsLogInGuard] },
-  { path: 'results-search/:name/:shoe/:brand/:releaseYar', component: ResultsSearchPageComponent, canActivate: [IsLogInGuard] },
+  { path: 'results-search/:name/:shoe/:brand/:releaseYear', component: ResultsSearchPageComponent, canActivate: [IsLogInGuard] },
   { path: 'sneaker/:id/:name', component: SneakerPageComponent, canActivate: [IsLogInGuard] },
   { path: 'wishlist', component: WishlistPageComponent, canActivate: [IsLogInGuard] },
   { path: 'collection', component: CollectionPageComponent, canActivate: [IsLogInGuard] }
