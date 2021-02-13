@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MediaSneaker, Sneaker } from 'src/app/class/sneaker';
+import { lowestResellPriceSneaker, MediaSneaker, Sneaker } from 'src/app/class/sneaker';
 import { RouterService } from 'src/app/services/router.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class SearchFormComponent {
     thumbUrl: ''
   }
   actualYear = new Date().getUTCFullYear();
-  model = new Sneaker('', '', '', '', this.mediaSneaker, '', 0, '', '', '', '', '', '');
+  model = new Sneaker('', '', '', '', this.mediaSneaker, '', 0, '', '', '', '', '', '', {}, {});
   submitted = false;
 
   constructor(private readonly routerService: RouterService) { }

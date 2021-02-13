@@ -19,6 +19,7 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
 import { WishlistPageComponent } from './pages/wishlist-page/wishlist-page.component';
 import { CollectionPageComponent } from './pages/collection-page/collection-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { PriceTableComponent } from './components/price-table/price-table.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     BackButtonComponent,
     WishlistPageComponent,
     CollectionPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    PriceTableComponent
   ],
   imports: [
     BrowserModule,

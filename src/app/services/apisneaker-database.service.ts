@@ -17,7 +17,16 @@ export class APISneakerDatabaseService {
     return new Promise((resolve, reject) => {
       this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers/${id}`).subscribe((data: Object[]) => {
         const sneaker: Sneaker = data['results'][0];
-        return resolve(sneaker);
+
+        this.httpClient.get(`https://sneaks-api.azurewebsites.net/id/${sneaker.styleId}/prices`).subscribe((data: Sneaker) => {
+          sneaker.description = (data.description) ? data.description : "";
+          sneaker.resellPrices = (data.resellPrices) ? data.resellPrices : "";
+          sneaker.lowestResellPrice = (data.lowestResellPrice) ? data.lowestResellPrice : {};
+          return resolve(sneaker);
+        }, (error: any) => {
+          return reject(error);
+        });
+
       }, (error: any) => {
         return reject(error);
       });
