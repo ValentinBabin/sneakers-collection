@@ -15,7 +15,7 @@ export class SearchFormComponent {
     thumbUrl: ''
   }
   actualYear = new Date().getUTCFullYear();
-  model = new Sneaker('', '', '', '', this.mediaSneaker, '', 0, '', '', '', '', this.actualYear);
+  model = new Sneaker('', '', '', '', this.mediaSneaker, '', 0, '', '', '', '', '', '');
   submitted = false;
 
   constructor(private readonly routerService: RouterService) { }
@@ -25,7 +25,7 @@ export class SearchFormComponent {
     this.model.name = (this.model.name) ? this.model.name : "name";
     this.model.shoe = (this.model.shoe) ? this.model.shoe : "shoe";
     this.model.brand = (this.model.brand) ? this.model.brand : "brand";
-    this.model.year = (this.model.year) ? this.model.year : new Date().getUTCFullYear();
+    this.model.year = (this.model.year) ? this.model.year : '';
 
     this.routerService.navigateTo(`/results-search/${this.model.name}/${this.model.shoe}/${this.model.brand}/${this.model.year}`)
 
