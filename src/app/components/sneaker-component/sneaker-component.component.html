@@ -1,15 +1,16 @@
-<div *ngIf="!isSkeleton">
+<div *ngIf="!isInHomePage">
     <a class="select-none cursor-pointer" (click)="moveToSneakerPage(sneaker.id, sneaker.title)">
         <img class="mx-auto w-2/3 md:w-full img-blended" [src]="sneaker.media.imageUrl" alt="">
         <p class="font-sans font-bold text-bodyMobile md:text-body text-center md:text-left">{{sneaker.title}}</p>
     </a>
 </div>
 
-<div *ngIf="isSkeleton">
-    <a class="block w-32 h-32 select-none cursor-pointer">
-        <img class="skeleton-box mx-auto w-auto h-32" src="" alt="">
-        <p
-            class="skeleton-box font-sans font-bold text-bodyMobile md:text-body text-center md:text-left w-3/5 h-5 mt-2">
-        </p>
+<div *ngIf="isInHomePage" class="home-page">
+    <a class="block w-full h-auto">
+        <img class="mx-auto w-full h-auto"
+            src="https://images.stockx.com/images/Nike-Dunk-Low-Retro-Medium-Grey-Varsity-Red-2021-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1611778323"
+            alt="">
+        <p class="font-sans font-bold text-bodyMobile md:text-body text-center md:text-left mt-2">Jordan 1
+            Retro High White University Blue Black</p>
     </a>
 </div>

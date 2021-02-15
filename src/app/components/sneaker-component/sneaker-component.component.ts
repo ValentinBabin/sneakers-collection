@@ -10,7 +10,7 @@ import { RouterService } from 'src/app/services/router.service';
 export class SneakerComponentComponent implements OnInit {
 
   @Input() sneaker: Sneaker;
-  @Input() isSkeleton: boolean = false;
+  @Input() isInHomePage: boolean = false;
 
   constructor(private readonly routerService: RouterService) { }
 
