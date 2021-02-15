@@ -22,6 +22,7 @@ import { WishlistPageComponent } from './pages/wishlist-page/wishlist-page.compo
 import { CollectionPageComponent } from './pages/collection-page/collection-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PriceTableComponent } from './components/price-table/price-table.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PriceTableComponent } from './components/price-table/price-table.compon
     WishlistPageComponent,
     CollectionPageComponent,
     LoginPageComponent,
-    PriceTableComponent
+    PriceTableComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
