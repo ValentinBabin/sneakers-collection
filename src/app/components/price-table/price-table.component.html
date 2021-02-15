@@ -1,6 +1,10 @@
-<div class="grid grid-rows-2 grid-flow-col gap-4">
+<div *ngIf="resellPrices" class="grid grid-rows-2 grid-flow-col gap-4">
     <div *ngFor="let size of shoeSizes">
         <p class="font-sans font-regular text-bodyMobile md:text-body">{{size}}</p>
         <p class="font-sans font-regular text-bodyMobile md:text-body">{{resellPrices.goat[size] | price}}</p>
     </div>
+</div>
+
+<div *ngIf="!resellPrices">
+    <h2 class="font-sans font-regular text-bodyMobile md:text-body">Malheureusement non disponible pour cette</h2>
 </div>

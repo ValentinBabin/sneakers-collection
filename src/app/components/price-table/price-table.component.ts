@@ -23,6 +23,8 @@ export class PriceTableComponent implements OnInit {
     }
     this.shoeSizes = Array.from(this.sizes);
     this.shoeSizes = this.shoeSizes.sort((a, b) => a - b);
+    console.log(this.resellPrices);
+
   }
 
 }

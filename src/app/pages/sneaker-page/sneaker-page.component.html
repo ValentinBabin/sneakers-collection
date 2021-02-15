@@ -20,18 +20,20 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 md:gap-10 mt-5">
-        <h2 class="font-sans font-regular text-bodyMobile md:text-body">
+        <h2 *ngIf="sneaker.lowestResellPrice.stockX" class="font-sans font-regular text-bodyMobile md:text-body">
             <i class="font-semibold">Prix resell sur stockX :</i> {{sneaker.lowestResellPrice.stockX | price}}
         </h2>
-        <h2 class="font-sans font-regular text-bodyMobile md:text-body">
+        <h2 *ngIf="sneaker.lowestResellPrice.goat" class="font-sans font-regular text-bodyMobile md:text-body">
             <i class="font-semibold">Prix resell sur Goat :</i> {{sneaker.lowestResellPrice.goat | price}}
         </h2>
-        <h2 class="font-sans font-regular text-bodyMobile md:text-body">
+        <h2 *ngIf="sneaker.lowestResellPrice.flightClub" class="font-sans font-regular text-bodyMobile md:text-body">
             <i class="font-semibold">Prix resell sur Fightclub :</i> {{sneaker.lowestResellPrice.flightClub | price}}
         </h2>
     </div>
 
-    <p class="font-sans font-regular text-bodyMobile md:text-body mt-5">{{sneaker.description}}</p>
+    <h2 class="font-sans font-regular text-bodyMobile md:text-body mt-5"><i class="font-semibold">Pour en savoir plus
+            :</i> (Uniquement en anglais)</h2>
+    <p class="font-sans font-regular text-bodyMobile md:text-body">{{sneaker.description}}</p>
 </div>
 
 <div *ngIf="!sneaker" class="w-full mx-auto mt-0 md:mt-10">
