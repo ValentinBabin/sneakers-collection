@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { rejects } from 'assert';
 import { Sneaker } from '../class/sneaker';
 
 @Injectable({
@@ -28,14 +27,22 @@ export class APISneakerDatabaseService {
 
   private getSneakerPrices(sneaker: Sneaker): Promise<Sneaker> {
     return new Promise((resolve, reject) => {
-      this.httpClient.get(`https://sneaks-api.azurewebsites.net/id/${sneaker.styleId}/prices`).subscribe((data: Sneaker) => {
-        sneaker.description = (data.description) ? data.description : "";
-        sneaker.resellPrices = (data.resellPrices) ? data.resellPrices : "";
-        sneaker.lowestResellPrice = (data.lowestResellPrice) ? data.lowestResellPrice : {};
-        return resolve(sneaker);
-      }, (error: any) => {
-        return reject(error);
-      });
+      sneaker.description = "";
+      sneaker.resellPrices = "";
+      sneaker.lowestResellPrice = {};
+      if (sneaker.styleId) {
+        this.httpClient.get(`https://sneaks-api.azurewebsites.net/id/${sneaker.styleId}/prices`).subscribe((data: Sneaker) => {
+          sneaker.description = (data.description) ? data.description : "";
+          sneaker.resellPrices = (data.resellPrices) ? data.resellPrices : "";
+          sneaker.lowestResellPrice = (data.lowestResellPrice) ? data.lowestResellPrice : {};
+          return resolve(sneaker);
+        }, (error: any) => {
+          return reject(error);
+        });
+      } else {
+        resolve(sneaker);
+      }
+
     });
   }
 

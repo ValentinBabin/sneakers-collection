@@ -5,10 +5,10 @@
             <app-search-form></app-search-form>
         </section>
 
-        <section>
+        <section class="mt-10 md:mt-5">
             <h1 class="font-sans font-bold text-h1Mobile md:text-h1 tracking-tight">Ou découvre des paires parmi les
                 marques les plus connues</h1>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <ul class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3">
                 <li *ngFor="let brand of brands">
                     <app-brand-component [brand]="brand"></app-brand-component>
                 </li>
