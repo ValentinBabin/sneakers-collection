@@ -20,8 +20,7 @@ export class RouterService {
   }
 
   public navigateTo(url: string): void {
-    console.log(encodeURI(url));
-
+    // console.log(encodeURI(url));
     this.router.navigateByUrl(encodeURI(url));
   }
 
