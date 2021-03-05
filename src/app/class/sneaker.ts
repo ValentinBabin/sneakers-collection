@@ -37,6 +37,23 @@ export interface resellPricesSneaker {
     }
 }
 
+export interface SneakerSQL {
+    sku: string,
+    brand: string,
+    colorway: string,
+    gender: string,
+    media: string,
+    release_date: string,
+    retail_price: string,
+    style_id: string,
+    shoe: string,
+    name: string,
+    title: string,
+    year: string,
+    description: string,
+    lowest_resell_price: string,
+    resell_prices: string
+}
 
 export class Sneaker {
 
