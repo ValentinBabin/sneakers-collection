@@ -22,32 +22,26 @@
     </div>
     <div class="mt-10 md:mt-20">
         <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Ma collection</h2>
-        <carousel freeScroll="true">
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-        </carousel>
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-2">
+            <li *ngFor="let sneaker of collection">
+                <app-sneaker-component [sneaker]="sneaker" [isInHomePage]="true"></app-sneaker-component>
+            </li>
+        </ul>
         <a [routerLink]="['/collection']" [ngClass]="{'cursor-not-allowed': isInVisitMode}"
-            class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Go
-            !</a>
+            class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
+            plus !</a>
 
     </div>
     <div class="mt-10 md:mt-20">
         <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Ma wishlist</h2>
-        <carousel freeScroll="true">
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-            <app-sneaker-component class="carousel-cell" [isInHomePage]="true"></app-sneaker-component>
-        </carousel>
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-2">
+            <li *ngFor="let sneaker of wishlist">
+                <app-sneaker-component [sneaker]="sneaker" [isInHomePage]="true"></app-sneaker-component>
+            </li>
+        </ul>
         <a [routerLink]="['/wishlist']" [ngClass]="{'cursor-not-allowed': isInVisitMode}"
-            class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Go
-            !</a>
+            class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
+            plus !</a>
     </div>
 
 
