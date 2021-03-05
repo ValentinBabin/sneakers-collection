@@ -11,7 +11,7 @@ import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.componen
 import { WishlistPageComponent } from './pages/wishlist-page/wishlist-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomePageComponent, canActivate: [IsLogInGuard] },
   { path: 'search', component: SearchPageComponent, canActivate: [IsLogInGuard] },

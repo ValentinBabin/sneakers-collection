@@ -16,22 +16,23 @@ export class IsLogInGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const isLogIn = this.sessionService.getIsLogInBool();
-    const isInVisitMode = this.sessionService.getIsInVisitModeBool();
-    if (isLogIn) {
-      return true;
-    } else {
-      if (isInVisitMode) {
-        if (state.url === "/collection" || state.url === "/wishlist") {
-          return false;
-        } else {
-          return true;
-        }
-      }
-      else {
-        return false;
-      }
-    };
+    // const isLogIn = this.sessionService.getIsLogInBool();
+    // const isInVisitMode = this.sessionService.getIsInVisitModeBool();
+    // if (isLogIn) {
+    //   return true;
+    // } else {
+    //   if (isInVisitMode) {
+    //     if (state.url === "/collection" || state.url === "/wishlist") {
+    //       return false;
+    //     } else {
+    //       return true;
+    //     }
+    //   }
+    //   else {
+    //     return false;
+    //   }
+    // };
+    return true
 
   }
 
