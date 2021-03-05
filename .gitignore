@@ -50,5 +50,12 @@ Thumbs.db
 # Don't push web api folder (database login etc.)
 /web_api/*
 !/web_api/.gitkeep
+/api_collection/*
+!/api_collection/.gitkeep
+/api_wishlist/*
+!/api_wishlist/.gitkeep
 
 debug.log
+
+.sql
+.mwb
