@@ -17,8 +17,9 @@ export class APISneakerDatabaseService {
     return new Promise((resolve, reject) => {
       this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers/${id}`).subscribe(async (data: Object[]) => {
         const sneaker: Sneaker = data['results'][0];
-        const sneakerWithPrice = await this.getSneakerPrices(sneaker);
-        resolve(sneakerWithPrice);
+        resolve(sneaker);
+        // const sneakerWithPrice = await this.getSneakerPrices(sneaker);
+        // resolve(sneakerWithPrice);
       }, (error: any) => {
         return reject(error);
       });
