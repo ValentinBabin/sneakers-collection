@@ -17,11 +17,13 @@ export class PriceTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.resellPrices = this.sneaker.resellPrices;
-    for (var size in this.resellPrices.goat) {
-      this.sizes.add(size);
+    if (this.resellPrices && this.resellPrices.goat) {
+      for (var size in this.resellPrices.goat) {
+        this.sizes.add(size);
+      }
+      this.shoeSizes = Array.from(this.sizes);
+      this.shoeSizes = this.shoeSizes.sort((a, b) => a - b);
     }
-    this.shoeSizes = Array.from(this.sizes);
-    this.shoeSizes = this.shoeSizes.sort((a, b) => a - b);
   }
 
 }
