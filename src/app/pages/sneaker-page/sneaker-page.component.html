@@ -8,6 +8,22 @@
     <p class="font-sans font-regular text-bodyMobile md:text-body"><i class="font-semibold">Année de sortie: </i>
         {{sneaker.releaseDate | date: 'd/MM/yyyy'}}
     </p>
+
+    <button *ngIf="(!isInCollection && isInWishlist) || (!isInCollection && !isInWishlist)"
+        (click)="addSneakerToCollection()"
+        class="mt-4 block items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Ajouter
+        à la collection !</button>
+    <button *ngIf="isInCollection" (click)="deleteSneakerToCollection()"
+        class="mt-4 block items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none">Supprimer
+        de la collection</button>
+
+    <button *ngIf="!isInCollection && !isInWishlist" (click)="addSneakerToWishlist()"
+        class="mt-4 block items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Ajouter
+        à la wishlist !</button>
+    <button *ngIf="isInWishlist" (click)="deleteSneakerToWishlist()"
+        class="mt-4 block items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none">Supprimer
+        de la wishlist</button>
+
     <img class="md:mt-10 md:mb-10 w-3/4 mx-auto" [src]="sneaker.media.imageUrl" alt="">
     <h2 class="font-sans font-regular text-bodyMobile md:text-body">
         <i class="font-semibold">Prix retail :</i> {{sneaker.retailPrice | price}}
@@ -20,13 +36,16 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 md:gap-10 mt-5">
-        <h2 *ngIf="sneaker.lowestResellPrice.stockX" class="font-sans font-regular text-bodyMobile md:text-body">
+        <h2 *ngIf="sneaker.lowestResellPrice && sneaker.lowestResellPrice.stockX"
+            class="font-sans font-regular text-bodyMobile md:text-body">
             <i class="font-semibold">Prix resell sur stockX :</i> {{sneaker.lowestResellPrice.stockX | price}}
         </h2>
-        <h2 *ngIf="sneaker.lowestResellPrice.goat" class="font-sans font-regular text-bodyMobile md:text-body">
+        <h2 *ngIf="sneaker.lowestResellPrice && sneaker.lowestResellPrice.goat"
+            class="font-sans font-regular text-bodyMobile md:text-body">
             <i class="font-semibold">Prix resell sur Goat :</i> {{sneaker.lowestResellPrice.goat | price}}
         </h2>
-        <h2 *ngIf="sneaker.lowestResellPrice.flightClub" class="font-sans font-regular text-bodyMobile md:text-body">
+        <h2 *ngIf="sneaker.lowestResellPrice && sneaker.lowestResellPrice.flightClub"
+            class="font-sans font-regular text-bodyMobile md:text-body">
             <i class="font-semibold">Prix resell sur Fightclub :</i> {{sneaker.lowestResellPrice.flightClub | price}}
         </h2>
     </div>
