@@ -1,9 +1,37 @@
 <div class="mt-0 md:mt-10">
-    <h1 class="font-sans font-bold text-h1Mobile md:text-h1 tracking-tight mt-10">Sneaker collection</h1>
+    <h1 class="font-sans font-bold text-h1Mobile md:text-h1 tracking-tight mt-10">Sneakers collection</h1>
     <p class="font-sans font-regular text-bodyMobile md:text-body">
         Bienvenue dans la web app nommée "Sneaker Collection", elle a pour but de recenser ma collection ainsi que ma
-        wishlist et pouvoir garder cela en ligne !
+        wishlist et pouvoir garder tout cela en ligne !
     </p>
+
+    <div class="mt-10 md:mt-20">
+        <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Ma collection</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-2">
+            <li *ngFor="let sneaker of collection">
+                <app-sneaker-component [sneaker]="sneaker" [isInHomePage]="true"></app-sneaker-component>
+            </li>
+            <div class="relative">
+                <a [routerLink]="['/collection']"
+                    class="md:absolute md:right-1/2 md:top-1/2 md:origin-center md:transform md:transform-y-1/2 md:translate-x-1/2 static inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
+                    plus !</a>
+            </div>
+        </ul>
+    </div>
+
+    <div class="mt-10 md:mt-20">
+        <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Ma wishlist</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-2">
+            <li *ngFor="let sneaker of wishlist">
+                <app-sneaker-component [sneaker]="sneaker" [isInHomePage]="true"></app-sneaker-component>
+            </li>
+            <div class="relative">
+                <a [routerLink]="['/wishlist']"
+                    class="md:absolute md:right-1/2 md:top-1/2 md:origin-center md:transform md:transform-y-1/2 md:translate-x-1/2 static inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
+                    plus !</a>
+            </div>
+        </ul>
+    </div>
 
     <div class="mt-10 md:mt-20">
         <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Trouve ta paire</h2>
@@ -15,30 +43,6 @@
         <a [routerLink]="['/search']"
             class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Chercher
             !</a>
-
-    </div>
-    <div class="mt-10 md:mt-20">
-        <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Ma collection</h2>
-        <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-2">
-            <li *ngFor="let sneaker of collection">
-                <app-sneaker-component [sneaker]="sneaker" [isInHomePage]="true"></app-sneaker-component>
-            </li>
-        </ul>
-        <a [routerLink]="['/collection']" [ngClass]="{'cursor-not-allowed': isInVisitMode}"
-            class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
-            plus !</a>
-
-    </div>
-    <div class="mt-10 md:mt-20">
-        <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Ma wishlist</h2>
-        <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-2">
-            <li *ngFor="let sneaker of wishlist">
-                <app-sneaker-component [sneaker]="sneaker" [isInHomePage]="true"></app-sneaker-component>
-            </li>
-        </ul>
-        <a [routerLink]="['/wishlist']" [ngClass]="{'cursor-not-allowed': isInVisitMode}"
-            class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
-            plus !</a>
     </div>
 
 

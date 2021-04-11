@@ -22,10 +22,14 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.isInVisitMode = this.sessionService.getIsInVisitModeBool();
     this.webApiService.getSneakers(WebApiService.NAME_API_COLLECTION).subscribe((data: Sneaker[]) => {
-      this.collection = data.splice(0, 3);
+      if (data.length > 1)
+        data = data.sort(() => Math.random() - 0.5);
+      this.collection = data.splice(0, 2);
     });
     this.webApiService.getSneakers(WebApiService.NAME_API_WISHLIST).subscribe((data: Sneaker[]) => {
-      this.wishlist = data.splice(0, 3);
+      if (data.length > 1)
+        data = data.sort(() => Math.random() - 0.5);
+      this.wishlist = data.splice(0, 2);
     });
   }
 
