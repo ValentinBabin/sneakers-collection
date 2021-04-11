@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { config } from 'rxjs';
 import { APISneakerDatabaseService } from 'src/app/services/apisneaker-database.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search-page',
@@ -14,10 +15,12 @@ export class SearchPageComponent implements OnInit {
 
   constructor(
     private readonly APISneakerDatabaseService: APISneakerDatabaseService,
-  ) { }
+    private route: ActivatedRoute
+  ) {
+  }
 
-  async ngOnInit(): Promise<void> {
-    this.brands = await this.APISneakerDatabaseService.getBrands();
+  ngOnInit() {
+    this.brands = this.route.snapshot.data.brands;
   }
 
 }
