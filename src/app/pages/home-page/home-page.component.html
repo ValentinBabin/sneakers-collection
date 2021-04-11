@@ -7,13 +7,13 @@
 
     <div class="mt-10 md:mt-20">
         <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Ma collection</h2>
-        <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-2">
-            <li *ngFor="let sneaker of collection">
+        <ul class="grid grid-cols-1 md:grid-cols-12 gap-10 mt-2">
+            <li *ngFor="let sneaker of collection" class="md:col-span-3">
                 <app-sneaker-component [sneaker]="sneaker" [isInHomePage]="true"></app-sneaker-component>
             </li>
-            <div class="relative">
+            <div class="relative md:col-span-3">
                 <a [routerLink]="['/collection']"
-                    class="md:absolute md:right-1/2 md:top-1/2 md:origin-center md:transform md:transform-y-1/2 md:translate-x-1/2 static inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
+                    class="see-more static inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
                     plus !</a>
             </div>
         </ul>
@@ -21,27 +21,30 @@
 
     <div class="mt-10 md:mt-20">
         <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Ma wishlist</h2>
-        <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-2">
-            <li *ngFor="let sneaker of wishlist">
+        <ul class="grid grid-cols-1 md:grid-cols-12 gap-10 mt-2">
+            <li *ngFor="let sneaker of wishlist" class="md:col-span-3">
                 <app-sneaker-component [sneaker]="sneaker" [isInHomePage]="true"></app-sneaker-component>
             </li>
-            <div class="relative">
+            <div class="relative md:col-span-3">
                 <a [routerLink]="['/wishlist']"
-                    class="md:absolute md:right-1/2 md:top-1/2 md:origin-center md:transform md:transform-y-1/2 md:translate-x-1/2 static inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
+                    class="see-more static inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Voir
                     plus !</a>
             </div>
         </ul>
     </div>
 
-    <div class="mt-10 md:mt-20">
-        <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Trouve ta paire</h2>
-        <p class="font-sans font-regular text-bodyMobile md:text-body">
-            La web app a aussi un "moteur de recherche" ou l'on peut trouver sa paire. Il est possible de regarder pour
-            une paire en la cherchant grâce a son nom ou sa marque mais il est aussi possible de regarder dans les
-            dernières sorties des grandes marques : Nike, Adidas, Yeezy, New Balance etc.
-        </p>
+    <div class="mt-10 md:mt-20 md:grid md:grid-cols-12">
+        <div class="md:col-span-10">
+            <h2 class="font-sans font-bold text-h2Mobile md:text-h2 tracking-tight">Trouve ta paire</h2>
+            <p class="font-sans font-regular text-bodyMobile md:text-body">
+                La web app a aussi un "moteur de recherche" ou l'on peut trouver sa paire. Il est possible de regarder
+                pour
+                une paire en la cherchant grâce a son nom ou sa marque mais il est aussi possible de regarder dans les
+                dernières sorties des grandes marques : Nike, Adidas, Yeezy, New Balance etc.
+            </p>
+        </div>
         <a [routerLink]="['/search']"
-            class="mt-5 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Chercher
+            class="mt-5 md:mt-0 btn-search md:col-span-2 m-auto inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">Chercher
             !</a>
     </div>
 
