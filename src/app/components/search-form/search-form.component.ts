@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { lowestResellPriceSneaker, MediaSneaker, Sneaker } from 'src/app/class/sneaker';
 import { RouterService } from 'src/app/services/router.service';
 
@@ -8,6 +8,8 @@ import { RouterService } from 'src/app/services/router.service';
   styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent {
+
+  @Input() brands: String[];
 
   mediaSneaker: MediaSneaker = {
     imageUrl: '',
