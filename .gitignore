@@ -55,6 +55,8 @@ Thumbs.db
 /api_wishlist/*
 !/api_wishlist/.gitkeep
 
+.htaccess
+
 debug.log
 
 *.sql
