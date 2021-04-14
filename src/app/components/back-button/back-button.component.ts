@@ -14,7 +14,10 @@ export class BackButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  back() {
+  /**
+   * Call router service method to navigate on the back page
+   */
+  public back() {
     this.routerService.navigateToBackPage();
   }
 

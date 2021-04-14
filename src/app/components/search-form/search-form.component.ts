@@ -22,7 +22,10 @@ export class SearchFormComponent {
 
   constructor(private readonly routerService: RouterService) { }
 
-  onSubmit() {
+  /**
+   * On submit form trigger router service to navigate in the result page
+   */
+  public onSubmit() {
     this.submitted = true;
     this.model.name = (this.model.name) ? this.model.name : "name";
     this.model.shoe = (this.model.shoe) ? this.model.shoe : "shoe";

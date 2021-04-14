@@ -16,7 +16,10 @@ export class BrandComponentComponent implements OnInit {
 
   }
 
-  moveTo(): void {
+  /**
+   * Call router service method to move in the brands page
+   */
+  public moveTo(): void {
     this.routerService.navigateTo(`/brands/${this.brand}`);
   }
 

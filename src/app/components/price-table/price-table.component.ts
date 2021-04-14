@@ -16,6 +16,7 @@ export class PriceTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // Sort size asc
     this.resellPrices = this.sneaker.resellPrices;
     if (this.resellPrices && this.resellPrices.goat) {
       for (var size in this.resellPrices.goat) {

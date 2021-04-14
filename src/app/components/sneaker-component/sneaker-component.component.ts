@@ -17,6 +17,10 @@ export class SneakerComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Call router service method to move in sneaker page
+   * (using regex to "clean" url)
+   */
   public moveToSneakerPage(id, title): void {
     const regex = /[()/]/g;
     title = title.replace(regex, '');
