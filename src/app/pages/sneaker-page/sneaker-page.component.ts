@@ -1,10 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Sneaker } from 'src/app/class/sneaker';
 import { APISneakerDatabaseService } from 'src/app/services/apisneaker-database.service';
-import { RouterService } from 'src/app/services/router.service';
-import { WebApiService } from 'src/app/services/web-api.service';
 // import puppeteer from 'puppeteer';
 
 @Component({
@@ -14,8 +11,7 @@ import { WebApiService } from 'src/app/services/web-api.service';
 })
 export class SneakerPageComponent implements OnInit {
 
-  sneaker: Sneaker;
-  resellPrice: string;
+  public sneaker: Sneaker;
 
   constructor(
     private readonly APISneakerDatabaseService: APISneakerDatabaseService,

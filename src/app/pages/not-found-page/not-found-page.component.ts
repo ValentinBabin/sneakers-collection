@@ -8,11 +8,16 @@ import { RouterService } from 'src/app/services/router.service';
 })
 export class NotFoundPageComponent implements OnInit {
 
-  constructor(private readonly routerService: RouterService) { }
+  constructor(
+    private readonly routerService: RouterService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Method to trigger router service method navigateTo
+   */
   public moveToHome(): void {
     this.routerService.navigateTo(`/home`);
   }

@@ -9,8 +9,8 @@ import { WebApiService } from 'src/app/services/web-api.service';
 })
 export class HomePageComponent implements OnInit {
 
-  collection: Array<Sneaker> = [];
-  wishlist: Array<Sneaker> = [];
+  public collection: Array<Sneaker> = [];
+  public wishlist: Array<Sneaker> = [];
 
   constructor(
     private readonly webApiService: WebApiService
@@ -18,11 +18,13 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.webApiService.getSneakers(WebApiService.NAME_API_COLLECTION).subscribe((data: Sneaker[]) => {
+      // Random sort if has more 1 items
       if (data.length > 1)
         data = data.sort(() => Math.random() - 0.5);
       this.collection = data.splice(0, 3);
     });
     this.webApiService.getSneakers(WebApiService.NAME_API_WISHLIST).subscribe((data: Sneaker[]) => {
+      // Random sort if has more 1 items
       if (data.length > 1)
         data = data.sort(() => Math.random() - 0.5);
       this.wishlist = data.splice(0, 3);

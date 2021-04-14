@@ -9,7 +9,7 @@ import { WebApiService } from 'src/app/services/web-api.service';
 })
 export class WishlistPageComponent implements OnInit {
 
-  wishlist: Array<Sneaker> = [];
+  public wishlist: Array<Sneaker> = [];
 
   constructor(
     private readonly webApiService: WebApiService

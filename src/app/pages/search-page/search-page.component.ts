@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { config } from 'rxjs';
-import { APISneakerDatabaseService } from 'src/app/services/apisneaker-database.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,15 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SearchPageComponent implements OnInit {
 
-  brands = [];
+  public brands = [];
 
   constructor(
-    private readonly APISneakerDatabaseService: APISneakerDatabaseService,
     private route: ActivatedRoute
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
+    // Due to fix a scroll bug at the enter
     window.scroll(0, 0);
     this.brands = this.route.snapshot.data.brands;
   }
