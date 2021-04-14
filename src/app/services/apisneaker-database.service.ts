@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sneaker } from '../class/sneaker';
+import { RouterService } from './router.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class APISneakerDatabaseService {
   apiBaseUrl = "https://api.thesneakerdatabase.com";
 
   constructor(
-    private readonly httpClient: HttpClient
+    private readonly httpClient: HttpClient,
+    private readonly routerService: RouterService
   ) { }
 
   public getSneaker(id: string): Promise<Sneaker> {
@@ -21,6 +23,7 @@ export class APISneakerDatabaseService {
         // const sneakerWithPrice = await this.getSneakerPrices(sneaker);
         // resolve(sneakerWithPrice);
       }, (error: any) => {
+        this.routerService.navigateTo('404');
         return reject(error);
       });
     });
