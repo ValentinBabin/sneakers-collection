@@ -10,6 +10,9 @@ export interface lowestResellPriceSneaker {
     stockX: string
 }
 
+/**
+ * Interface for sizing
+ */
 export interface resellPricesSneaker {
     goat: {
         "4": string,
@@ -37,6 +40,9 @@ export interface resellPricesSneaker {
     }
 }
 
+/**
+ * Interface for BDD return object
+ */
 export interface SneakerSQL {
     sku: string,
     brand: string,
@@ -55,8 +61,10 @@ export interface SneakerSQL {
     resell_prices: string
 }
 
+/**
+ * Class for sneaker object
+ */
 export class Sneaker {
-
     constructor(
         public id: string,
         public brand: string,
