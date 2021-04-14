@@ -34,8 +34,18 @@ export class RouterService {
    */
   public navigateToBackPage(): void {
     this.history.pop();
+    console.log(this.history);
+
     if (this.history.length > 0) {
-      this.location.back();
+      if (
+        this.history[this.history.length - 1].split('/')[1] &&
+        typeof this.history[this.history.length - 1].split('/')[1] === "string" &&
+        this.history[this.history.length - 1].split('/')[1] === "results-search"
+      ) {
+        this.router.navigateByUrl('/search');
+      } else {
+        this.location.back();
+      }
     } else {
       // When doesn't have "history" return in home
       this.router.navigateByUrl('/home');
