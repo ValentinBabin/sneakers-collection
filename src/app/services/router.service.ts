@@ -34,8 +34,6 @@ export class RouterService {
    */
   public navigateToBackPage(): void {
     this.history.pop();
-    console.log(this.history);
-
     if (this.history.length > 0) {
       if (
         this.history[this.history.length - 1].split('/')[1] &&
