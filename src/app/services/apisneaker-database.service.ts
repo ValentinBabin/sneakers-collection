@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sneaker } from '../class/sneaker';
 import { RouterService } from './router.service';
+import { WebApiService } from './web-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class APISneakerDatabaseService {
 
   constructor(
     private readonly httpClient: HttpClient,
-    private readonly routerService: RouterService
+    private readonly routerService: RouterService,
+    private readonly webApiService: WebApiService
   ) { }
 
   /**
@@ -30,6 +32,22 @@ export class APISneakerDatabaseService {
         // Stand by, can get price
         // const sneakerWithPrice = await this.getSneakerPrices(sneaker);
         // resolve(sneakerWithPrice);
+      }, () => {
+        this.getLocalSneaker(id).then((data: Sneaker) => {
+          resolve(data);
+        }, (error: any) => {
+          this.routerService.navigateTo('404');
+          return reject(error);
+        });
+      });
+    });
+  }
+
+  public getLocalSneaker(id: string): Promise<Sneaker> {
+    return new Promise((resolve, reject) => {
+      this.webApiService.getSneaker(WebApiService.NAME_API_COLLECTION, id).subscribe((data: any) => {
+        const sneaker: Sneaker = data
+        resolve(sneaker);
       }, (error: any) => {
         this.routerService.navigateTo('404');
         return reject(error);

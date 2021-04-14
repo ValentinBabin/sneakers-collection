@@ -53,6 +53,29 @@ export class WebApiService {
     }));
   }
 
+  public getSneaker(api: string, id: string) {
+    return this.httpClient.get(this.setUrlApi(api) + 'view_one.php?sku=' + id).pipe(map((data: any) => {
+      const sneaker = new Sneaker(
+        data.sku,
+        data.brand,
+        data.colorway,
+        data.gender,
+        JSON.parse(data.media),
+        data.release_date,
+        parseInt(data.retail_price, 10),
+        data.style_id,
+        data.shoe,
+        data.name,
+        data.title,
+        data.year,
+        data.description,
+        JSON.parse(data.lowest_resell_price),
+        JSON.parse(data.resell_prices)
+      );
+      return sneaker;
+    }));
+  }
+
   /**
    * Set the full Web API url with base_url and API name
    * @param apiUrl Name of API

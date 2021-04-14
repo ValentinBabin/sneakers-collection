@@ -1,8 +1,8 @@
 <div *ngIf="!isInHomePage">
     <a class="select-none cursor-pointer" (click)="moveToSneakerPage(sneaker.id, sneaker.title)">
-        <img *ngIf="sneaker.media.imageUrl" class="mx-auto w-2/3 md:w-full img-blended" [src]="sneaker.media.imageUrl"
-            alt="">
-        <img *ngIf="!sneaker.media.imageUrl" class="mx-auto w-2/3 md:w-full img-blended"
+        <img *ngIf="sneaker.media && sneaker.media.imageUrl" class="mx-auto w-2/3 md:w-full img-blended"
+            [src]="sneaker.media.imageUrl" alt="">
+        <img *ngIf="!sneaker.media && !sneaker.media.imageUrl" class="mx-auto w-2/3 md:w-full img-blended"
             src="https://stockx-assets.imgix.net/media/New-Product-Placeholder-Default.jpg" alt="">
         <p *ngIf="sneaker.title" class="font-sans font-bold text-bodyMobile md:text-body text-center md:text-left">
             {{sneaker.title}}</p>
@@ -11,9 +11,9 @@
 
 <div *ngIf="isInHomePage && sneaker" class="home-page">
     <a class="cursor-pointer block w-full h-auto" (click)="moveToSneakerPage(sneaker.id, sneaker.title)">
-        <img *ngIf="sneaker.media.imageUrl" class="mx-auto w-2/3 md:w-full img-blended" [src]="sneaker.media.imageUrl"
-            alt="">
-        <img *ngIf="!sneaker.media.imageUrl" class="mx-auto w-2/3 md:w-full img-blended"
+        <img *ngIf="sneaker.media && sneaker.media.imageUrl" class="mx-auto w-2/3 md:w-full img-blended"
+            [src]="sneaker.media.imageUrl" alt="">
+        <img *ngIf="!sneaker.media && !sneaker.media.imageUrl" class="mx-auto w-2/3 md:w-full img-blended"
             src="https://stockx-assets.imgix.net/media/New-Product-Placeholder-Default.jpg" alt="">
         <p class="font-sans font-bold text-bodyMobile md:text-body text-center md:text-left">{{sneaker.title}}</p>
     </a>
