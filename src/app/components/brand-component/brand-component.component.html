@@ -1,3 +1,4 @@
 <a (click)="moveTo()" class="select-none cursor-pointer">
-    <p class="font-sans font-bold text-h4Mobile md:text-h4 tracking-tight my-5 text-center">{{ brand }}</p>
+    <p *ngIf="brand" class="font-sans font-bold text-h4Mobile md:text-h4 tracking-tight my-5 text-center">{{ brand }}
+    </p>
 </a>

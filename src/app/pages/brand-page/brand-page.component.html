@@ -1,6 +1,6 @@
 <app-back-button></app-back-button>
 <div class="w-full mx-auto mt-0 md:mt-10">
-    <h1 class="font-sans font-bold text-h1Mobile md:text-h1 tracking-tight mt-10">{{brandName}}</h1>
+    <h1 *ngIf="brandName" class="font-sans font-bold text-h1Mobile md:text-h1 tracking-tight mt-10">{{brandName}}</h1>
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-2">
         <li *ngFor="let sneaker of sneakers">
             <app-sneaker-component [sneaker]="sneaker"></app-sneaker-component>
