@@ -11,6 +11,7 @@ export class SneakerComponentComponent implements OnInit {
 
   @Input() sneaker: Sneaker;
   @Input() isInHomePage: boolean = false;
+  @Input() snkrsLocation: string;
 
   constructor(private readonly routerService: RouterService) { }
 
@@ -25,7 +26,7 @@ export class SneakerComponentComponent implements OnInit {
   public moveToSneakerPage(id: string, title: string): void {
     const regex = /[()/]/g;
     title = title.replace(regex, '');
-    this.routerService.navigateTo(`/sneaker/${id}/${title}`);
+    this.routerService.navigateTo(`/sneaker/${this.snkrsLocation}/${id}/${title}`);
   }
 
 }

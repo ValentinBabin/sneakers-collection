@@ -19,7 +19,8 @@ export class SneakerPageComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get('id');
-    this.sneaker = await this.APISneakerDatabaseService.getSneaker(id);
+    const snkrsLocation = this.route.snapshot.paramMap.get('location');
+    this.sneaker = await this.APISneakerDatabaseService.getSneaker(id, snkrsLocation);
   }
 
 }

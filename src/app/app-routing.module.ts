@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'search', component: SearchPageComponent, resolve: { brands: BrandsResolver } },
   { path: 'brands/:brandName', component: BrandPageComponent, resolve: { sneakers: SneakersBrandResolver } },
   { path: 'results-search/:name/:shoe/:brand/:releaseYear', component: ResultsSearchPageComponent, resolve: { results: ResultResolver } },
-  { path: 'sneaker/:id/:name', component: SneakerPageComponent },
+  { path: 'sneaker/:location/:id/:name', component: SneakerPageComponent },
   { path: 'wishlist', component: WishlistPageComponent },
   { path: 'collection', component: CollectionPageComponent },
   { path: '404', component: NotFoundPageComponent },

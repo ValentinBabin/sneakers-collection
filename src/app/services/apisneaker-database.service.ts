@@ -22,31 +22,46 @@ export class APISneakerDatabaseService {
    * Method that allow get a sneaker object
    * @getSneaker
    * @param id sneaker id
+   * @param location sneaker location in app (collection, wishlist or other)
    * @returns Sneaker Object in Promise
    */
-  public getSneaker(id: string): Promise<Sneaker> {
-    return new Promise((resolve, reject) => {
-      this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers/${id}`).subscribe(async (data: Object[]) => {
-        const sneaker: Sneaker = data['results'][0];
-        resolve(sneaker);
-        // Stand by, can get price
-        // const sneakerWithPrice = await this.getSneakerPrices(sneaker);
-        // resolve(sneakerWithPrice);
-      }, () => {
-        this.getLocalSneaker(id).then((data: Sneaker) => {
-          resolve(data);
+  public getSneaker(id: string, location: string): Promise<Sneaker> {
+    // If the location of the sneaker is in collection or whislist, get data from web api
+    if (location && (location === "0" || location === "1")) {
+      return new Promise((resolve, reject) => {
+        this.getLocalSneaker(id, location).then((sneaker: Sneaker) => {
+          resolve(sneaker);
+        }, (error: any) => {
+          reject(error);
+        });
+      });
+    } else {
+      return new Promise((resolve, reject) => {
+        this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers/${id}`).subscribe(async (data: Object[]) => {
+          const sneaker: Sneaker = data['results'][0];
+          resolve(sneaker);
+          // Stand by, can get price
+          // const sneakerWithPrice = await this.getSneakerPrices(sneaker);
+          // resolve(sneakerWithPrice);
         }, (error: any) => {
           this.routerService.navigateTo('404');
           return reject(error);
         });
       });
-    });
+    }
   }
 
-  public getLocalSneaker(id: string): Promise<Sneaker> {
+  /**
+   * Method that allow get a sneaker object but direct in BDD with web API
+   * @param id sneaker id
+   * @param location sneaker location in app (collection, wishlist or other)
+   * @returns Sneaker Object in Promise
+   */
+  public getLocalSneaker(id: string, location: string): Promise<Sneaker> {
+    let nameApi = (location && location === "0") ? WebApiService.NAME_API_COLLECTION : WebApiService.NAME_API_WISHLIST;
     return new Promise((resolve, reject) => {
-      this.webApiService.getSneaker(WebApiService.NAME_API_COLLECTION, id).subscribe((data: any) => {
-        const sneaker: Sneaker = data
+      this.webApiService.getSneaker(nameApi, id).subscribe((data: Sneaker) => {
+        const sneaker: Sneaker = data;
         resolve(sneaker);
       }, (error: any) => {
         this.routerService.navigateTo('404');

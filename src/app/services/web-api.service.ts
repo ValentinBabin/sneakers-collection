@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Sneaker, SneakerSQL } from '../class/sneaker';
@@ -53,8 +54,14 @@ export class WebApiService {
     }));
   }
 
-  public getSneaker(api: string, id: string) {
-    return this.httpClient.get(this.setUrlApi(api) + 'view_one.php?sku=' + id).pipe(map((data: any) => {
+  /**
+   * Get one sneaker with id
+   * @param api Name of API
+   * @param id sneaker id
+   * @returns Sneaker object in observable
+   */
+  public getSneaker(api: string, id: string): Observable<Sneaker> {
+    return this.httpClient.get(this.setUrlApi(api) + 'view_one.php?sku=' + id).pipe(map((data: SneakerSQL) => {
       const sneaker = new Sneaker(
         data.sku,
         data.brand,
