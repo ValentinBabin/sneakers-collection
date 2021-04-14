@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
-  Router, Resolve,
+  Resolve,
   RouterStateSnapshot,
-  ActivatedRouteSnapshot,
-  ActivatedRoute
+  ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
@@ -25,6 +24,12 @@ export class ResultResolver implements Resolve<boolean> {
     return this.APISneakerDatabaseService.getSneakers(name, shoe, brand, year);
   }
 
+  /**
+   * Method that create the formatted query parameter
+   * @param param Name of url parameter
+   * @param route Route
+   * @returns formatted query parameter for API
+   */
   private createQueryParam(param: string, route: ActivatedRouteSnapshot): string {
     const paramValue = route.paramMap.get(param);
     if (param === paramValue) {
