@@ -22,21 +22,8 @@ export class ResultsSearchPageComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.name = (this.route.snapshot.paramMap.get('name')) ? this.createQueryParam('name') : '';
-    this.shoe = (this.route.snapshot.paramMap.get('shoe')) ? this.createQueryParam('shoe') : '';
-    this.brand = (this.route.snapshot.paramMap.get('brand')) ? this.createQueryParam('brand') : '';
-    this.year = (this.route.snapshot.paramMap.get('releaseYear')) ? this.createQueryParam('releaseYear') : '';
-
-    this.results = await this.APISneakerDatabaseService.getSneakers(this.name, this.shoe, this.brand, this.year);
-  }
-
-  createQueryParam(param: string): string {
-    const paramValue = this.route.snapshot.paramMap.get(param);
-    if (param === paramValue) {
-      return '';
-    } else {
-      return `&${param}=${paramValue}`;
-    }
+    window.scroll(0, 0);
+    this.results = this.route.snapshot.data.results;
   }
 
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -20,9 +21,9 @@ import { SneakerPageComponent } from './pages/sneaker-page/sneaker-page.componen
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { WishlistPageComponent } from './pages/wishlist-page/wishlist-page.component';
 import { CollectionPageComponent } from './pages/collection-page/collection-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PriceTableComponent } from './components/price-table/price-table.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +40,13 @@ import { FooterComponent } from './components/footer/footer.component';
     BackButtonComponent,
     WishlistPageComponent,
     CollectionPageComponent,
-    LoginPageComponent,
     PriceTableComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,

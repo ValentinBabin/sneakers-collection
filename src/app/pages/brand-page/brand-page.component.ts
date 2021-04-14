@@ -19,7 +19,8 @@ export class BrandPageComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.brandName = this.route.snapshot.paramMap.get('brandName');
-    this.sneakers = await this.APISneakerDatabaseService.getSneakersBrand(this.brandName);
+    window.scroll(0, 0);
+    this.sneakers = this.route.snapshot.data.sneakers;
   }
 
 }

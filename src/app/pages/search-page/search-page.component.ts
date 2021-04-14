@@ -20,6 +20,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scroll(0, 0);
     this.brands = this.route.snapshot.data.brands;
   }
 
