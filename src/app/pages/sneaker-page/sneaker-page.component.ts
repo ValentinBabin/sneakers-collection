@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Sneaker } from 'src/app/class/sneaker';
 import { APISneakerDatabaseService } from 'src/app/services/apisneaker-database.service';
-// import puppeteer from 'puppeteer';
 
 @Component({
   selector: 'app-sneaker-page',

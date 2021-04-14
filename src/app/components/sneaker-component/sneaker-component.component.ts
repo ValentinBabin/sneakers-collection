@@ -14,14 +14,15 @@ export class SneakerComponentComponent implements OnInit {
 
   constructor(private readonly routerService: RouterService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   /**
    * Call router service method to move in sneaker page
-   * (using regex to "clean" url)
+   * (using regex to "clean" url) 
+   * @param id sneaker id
+   * @param title title id
    */
-  public moveToSneakerPage(id, title): void {
+  public moveToSneakerPage(id: string, title: string): void {
     const regex = /[()/]/g;
     title = title.replace(regex, '');
     this.routerService.navigateTo(`/sneaker/${id}/${title}`);
