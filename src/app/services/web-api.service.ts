@@ -13,16 +13,22 @@ export class WebApiService {
   public static NAME_API_WISHLIST = 'api_wishlist';
 
   //base api url
-  public baseUrl = environment.base_url;
+  private readonly baseUrl = environment.base_url;
 
   constructor(
     private readonly httpClient: HttpClient
   ) { }
 
-  getSneakers(api: string) {
+  /**
+   * Get all sneakers from API
+   * @param api Name of API
+   * @returns sneakers arrays
+   */
+  public getSneakers(api: string) {
     return this.httpClient.get(this.setUrlApi(api) + 'view.php').pipe(map((data: any) => {
       const sneakers: Array<Sneaker> = [];
       data.forEach((element: SneakerSQL) => {
+        // Some element need to parse
         const sneaker = new Sneaker(
           element.sku,
           element.brand,
@@ -40,20 +46,24 @@ export class WebApiService {
           JSON.parse(element.lowest_resell_price),
           JSON.parse(element.resell_prices)
         );
+        // After data formatted push in Sneaker array
         sneakers.push(sneaker);
       });
       return sneakers;
     }));
   }
 
+  /**
+   * Set the full Web API url with base_url and API name
+   * @param apiUrl Name of API
+   * @returns the full Web API url
+   */
   private setUrlApi(apiUrl: string): string {
     switch (apiUrl) {
-      case WebApiService.NAME_API_COLLECTION:
-        return this.baseUrl + '/api_collection/';
-        break;
       case WebApiService.NAME_API_WISHLIST:
         return this.baseUrl + '/api_wishlist/';
-        break;
+      default:
+        return this.baseUrl + '/api_collection/';
     }
   }
 

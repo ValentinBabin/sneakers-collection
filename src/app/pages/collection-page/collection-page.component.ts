@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Sneaker } from 'src/app/class/sneaker';
-import { SessionService } from 'src/app/services/session.service';
 import { WebApiService } from 'src/app/services/web-api.service';
 
 @Component({
@@ -13,7 +12,6 @@ export class CollectionPageComponent implements OnInit {
   collection: Array<Sneaker> = [];
 
   constructor(
-    private readonly sessionService: SessionService,
     private readonly webApiService: WebApiService
   ) { }
 

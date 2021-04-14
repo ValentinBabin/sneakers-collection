@@ -11,7 +11,8 @@ export class RouterService {
 
   constructor(
     private readonly router: Router,
-    private readonly location: Location) {
+    private readonly location: Location
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.history.push(event.urlAfterRedirects)
@@ -19,16 +20,24 @@ export class RouterService {
     })
   }
 
+  /**
+   * Method that allow to navigate between page
+   * @param url Url to navigate
+   */
   public navigateTo(url: string): void {
-    // console.log(encodeURI(url));
     this.router.navigateByUrl(encodeURI(url));
   }
 
+  /**
+   * Method that allow navigate back with listening router event
+   * (use for back button)
+   */
   public navigateToBackPage(): void {
     this.history.pop();
     if (this.history.length > 0) {
       this.location.back();
     } else {
+      // When doesn't have "history" return in home
       this.router.navigateByUrl('/home');
     }
   }

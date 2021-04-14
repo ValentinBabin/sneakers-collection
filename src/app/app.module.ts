@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { IvyCarouselModule } from 'angular-responsive-carousel';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -49,8 +47,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule,
-    IvyCarouselModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
