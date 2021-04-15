@@ -56,7 +56,14 @@ Thumbs.db
 !/api_wishlist/.gitkeep
 
 .htaccess
+.htpasswd
+
 /icons
+favicon-*.png
+android-icon-*.png
+apple-icon*.png
+ms-icon*.png
+browserconfig.xml
 
 debug.log
 
