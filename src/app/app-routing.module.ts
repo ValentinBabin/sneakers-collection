@@ -13,8 +13,8 @@ import { ResultResolver } from './resolver/result.resolver';
 import { SneakersBrandResolver } from './resolver/sneakers-brand.resolver';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', component: HomePageComponent },
   { path: 'search', component: SearchPageComponent, resolve: { brands: BrandsResolver } },
   { path: 'brands/:brandName', component: BrandPageComponent, resolve: { sneakers: SneakersBrandResolver } },
   { path: 'results-search/:name/:shoe/:brand/:releaseYear', component: ResultsSearchPageComponent, resolve: { results: ResultResolver } },

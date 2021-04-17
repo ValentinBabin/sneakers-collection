@@ -19,7 +19,7 @@ export class NotFoundPageComponent implements OnInit {
    * Method to trigger router service method navigateTo
    */
   public moveToHome(): void {
-    this.routerService.navigateTo(`/home`);
+    this.routerService.navigateTo(`/`);
   }
 
 }

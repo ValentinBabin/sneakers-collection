@@ -46,7 +46,7 @@ export class RouterService {
       }
     } else {
       // When doesn't have "history" return in home
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/');
     }
   }
 }

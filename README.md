@@ -1,6 +1,8 @@
 # sneakers-collection
 An angular app to list and show my sneakers collection and wishlist
 
+https://sneakers-collection.valentinbabin.fr/
+
 ## SneakersCollection
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
