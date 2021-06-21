@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Sneaker } from '../class/sneaker';
 import { RouterService } from './router.service';
 import { WebApiService } from './web-api.service';
@@ -10,7 +11,18 @@ import { WebApiService } from './web-api.service';
 export class APISneakerDatabaseService {
 
   // In this service, I use the the-sneaker-database API : https://app.swaggerhub.com/apis-docs/tg4solutions/the-sneaker-database/1.0.0#/sneakers
-  private readonly apiBaseUrl = "https://api.thesneakerdatabase.com";
+  // 21/06/2021 API switch process after launching, now API was in rapid api (with a token)
+  private readonly apiBaseUrl = "https://v1-sneakers.p.rapidapi.com";
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Origin": "*",
+      "x-rapidapi-key": "73a4b73452msh0d33705fe91050fp13768ajsn8dd41a0e86cd",
+      "x-rapidapi-host": "v1-sneakers.p.rapidapi.com"
+    })
+  };
+
 
   constructor(
     private readonly httpClient: HttpClient,
@@ -37,7 +49,7 @@ export class APISneakerDatabaseService {
       });
     } else {
       return new Promise((resolve, reject) => {
-        this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers/${id}`).subscribe(async (data: Object[]) => {
+        this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers/${id}`, this.httpOptions).subscribe(async (data: Object[]) => {
           const sneaker: Sneaker = data['results'][0];
           resolve(sneaker);
           // Stand by, can get price
@@ -104,7 +116,7 @@ export class APISneakerDatabaseService {
    */
   public getBrands(): Promise<string[]> {
     return new Promise((resolve, reject) => {
-      this.httpClient.get(`${this.apiBaseUrl}/v1/brands`).subscribe((data: Object[]) => {
+      this.httpClient.get(`${this.apiBaseUrl}/v1/brands`, this.httpOptions).subscribe((data: Object[]) => {
         const brands: string[] = data['results'];
         return resolve(brands);
       }, (error: any) => {
@@ -120,7 +132,7 @@ export class APISneakerDatabaseService {
    */
   public getSneakersBrand(brandName: string): Promise<Sneaker[]> {
     return new Promise((resolve, reject) => {
-      this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers?limit=100&brand=${brandName}`).subscribe((data: Object[]) => {
+      this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers?limit=100&brand=${brandName}`, this.httpOptions).subscribe((data: Object[]) => {
         const sneakers: Sneaker[] = data['results'];
         return resolve(sneakers);
       }, (error: any) => {
@@ -139,7 +151,7 @@ export class APISneakerDatabaseService {
    */
   public getSneakers(name: string, shoe: string, brand: string, year: string): Promise<Sneaker[]> {
     return new Promise((resolve, reject) => {
-      this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers?limit=100${name}${shoe}${brand}${year}`).subscribe((data: Object[]) => {
+      this.httpClient.get(`${this.apiBaseUrl}/v1/sneakers?limit=100${name}${shoe}${brand}${year}`, this.httpOptions).subscribe((data: Object[]) => {
         const sneakers: Sneaker[] = data['results'];
         return resolve(sneakers);
       }, (error: any) => {
